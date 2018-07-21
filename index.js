@@ -12,7 +12,10 @@ const server = http.createServer((req, res) => {
   client.connect()
     .then(() => client.query('SELECT * FROM hellotable'))
     .then((result) => {
-      res.end(`${result.rows[0].name}\n`);
+      for (let row of result.rows) {
+        console.log(JSON.stringify(row));
+      }
+      res.end("hello rows");
       client.end();
     })
     .catch(() => {
