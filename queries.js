@@ -13,8 +13,8 @@ var db = pgp(connectionString);
 
 module.exports = {
   getAllHackers: getAllHackers,
-  getSingleHacker: getSingleHacker//,
-  //createHacker: createHacker,
+  getSingleHacker: getSingleHacker,
+  createHacker: createHacker,
   //updateHacker: updateHacker,
   //removeHacker: removeHacker
 };
