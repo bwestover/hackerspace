@@ -54,7 +54,7 @@ function getSingleHacker(req, res, next) {
 function createHacker(req, res, next) {
   //req.body.age = parseInt(req.body.age);
   console.log("Hello from createHacker");
-  console.log("Trying to create Hacker" + req.body + "after body");
+  console.log(req.body);
   db.none('insert into hackers(name, languages, frameworks, databases, idea)' +
       'values(${name}, ${languages}, ${frameworks}, ${databases}, ${idea})',
     req.body)
