@@ -3,7 +3,11 @@ var router = express.Router();
 
 var db = require('../queries');
 
-
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 router.get('/api/hackers', db.getAllHackers);
 router.get('/api/hackers/:id', db.getSingleHacker);
