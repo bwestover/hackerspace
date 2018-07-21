@@ -71,7 +71,7 @@ function createHacker(req, res, next) {
 }
 
 function updateHacker(req, res, next) {
-  db.none('update hackers set name=$1, languages=$2, frameworks=$3, databases=$4, idea=$4 where id=$5',
+  db.none('update hackers set name=$1, languages=$2, frameworks=$3, databases=$4, idea=$5 where id=$6',
     [req.body.name, req.body.languages, req.body.frameworks,
       req.body.databases, req.body.idea, parseInt(req.params.id)])
     .then(function () {
