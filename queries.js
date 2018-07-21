@@ -52,7 +52,7 @@ function getSingleHacker(req, res, next) {
 }
 
 function createHacker(req, res, next) {
-  req.body.age = parseInt(req.body.age);
+  //req.body.age = parseInt(req.body.age);
   db.none('insert into hackers(name, languages, frameworks, databases, idea)' +
       'values(${name}, ${languages}, ${frameworks}, ${databases}, ${idea})',
     req.body)
