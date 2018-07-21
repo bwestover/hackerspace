@@ -3,6 +3,7 @@ var router = express.Router();
 
 var db = require('../queries');
 
+router.all('*', cors());
 router.get('/api/hackers', db.getAllHackers);
 router.get('/api/hackers/:id', db.getSingleHacker);
 router.post('/api/hackers', db.createHacker);
