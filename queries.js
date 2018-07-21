@@ -50,3 +50,20 @@ function getSingleHacker(req, res, next) {
       return next(err);
     });
 }
+
+function createHacker(req, res, next) {
+  req.body.age = parseInt(req.body.age);
+  db.none('insert into hackers(name, languages, frameworks, databases, idea)' +
+      'values(${name}, ${languages}, ${frameworks}, ${databases}, ${idea})',
+    req.body)
+    .then(function () {
+      res.status(200)
+        .json({
+          status: 'success',
+          message: 'Inserted one hacker'
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+}
