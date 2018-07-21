@@ -1,8 +1,9 @@
 var express = require('express');
 var router = express.Router();
-
+var cors = require('cors')
 var db = require('../queries');
 
+router.all('*', cors());
 router.get('/api/hackers', db.getAllHackers);
 router.get('/api/hackers/:id', db.getSingleHacker);
 router.post('/api/hackers', db.createHacker);
