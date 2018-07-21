@@ -12,13 +12,12 @@ var db = pgp(connectionString);
 
 
 module.exports = {
-  getAllHackers: getAllHackers
-}; //,
-  //getSingleHacker: getSingleHacker,
+  getAllHackers: getAllHackers,
+  getSingleHacker: getSingleHacker//,
   //createHacker: createHacker,
   //updateHacker: updateHacker,
   //removeHacker: removeHacker
-//};
+};
 
 function getAllHackers(req, res, next) {
  db.any('select * from hackers')
@@ -34,4 +33,20 @@ function getAllHackers(req, res, next) {
      return next(err);
    });
 console.log("in getAllHackers function")
+}
+
+function getSingleHacker(req, res, next) {
+  var pupID = parseInt(req.params.id);
+  db.one('select * from hackers where id = $1', pupID)
+    .then(function (data) {
+      res.status(200)
+        .json({
+          status: 'success',
+          data: data,
+          message: 'Retrieved ONE hacker'
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
 }
