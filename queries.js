@@ -15,7 +15,7 @@ module.exports = {
   getAllHackers: getAllHackers,
   getSingleHacker: getSingleHacker,
   createHacker: createHacker,
-  //updateHacker: updateHacker,
+  updateHacker: updateHacker,
   //removeHacker: removeHacker
 };
 
@@ -63,6 +63,22 @@ function createHacker(req, res, next) {
         .json({
           status: 'success',
           message: 'Inserted one hacker'
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+}
+
+function updateHacker(req, res, next) {
+  db.none('update hackers set name=$1, languages=$2, frameworks=$3, databases=$4, idea=$4 where id=$5',
+    [req.body.name, req.body.languages, req.body.frameworks,
+      req.body.databases, req.body.idea, parseInt(req.params.id)])
+    .then(function () {
+      res.status(200)
+        .json({
+          status: 'success',
+          message: 'Updated hacker'
         });
     })
     .catch(function (err) {
