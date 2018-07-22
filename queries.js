@@ -16,7 +16,7 @@ module.exports = {
   getSingleHacker: getSingleHacker,
   createHacker: createHacker,
   updateHacker: updateHacker,
-  //removeHacker: removeHacker
+  removeHacker: removeHacker
 };
 
 function getAllHackers(req, res, next) {
@@ -82,6 +82,23 @@ function updateHacker(req, res, next) {
           status: 'success',
           message: 'Updated hacker'
         });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+}
+
+function removeHacker(req, res, next) {
+  var hackerID = parseInt(req.params.id);
+  db.result('delete from hackers where id = $1', hackerID)
+    .then(function (result) {
+      /* jshint ignore:start */
+      res.status(200)
+        .json({
+          status: 'success',
+          message: `Removed ${result.rowCount} Hacker`
+        });
+      /* jshint ignore:end */
     })
     .catch(function (err) {
       return next(err);
