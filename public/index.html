@@ -1,17 +1,102 @@
-<!DOCTYPE html> <html lang="en" class="no-js" ng-app="edhubJobsApp"> <head> <meta charset="utf-8"> <title>Hack Team Find</title> <meta http-equiv="x-ua-compatible" content="IE=edge"> <meta name="description" content="Street View App"> <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"> <meta name="author" content="Julius Hernandez Alvarado"> <link rel="stylesheet" href="styles/vendor.8f661d98.css"> <link rel="stylesheet" href="styles/main.980f9528.css"> <!-- ng-cloak --> <style type="text/css"> [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+<!DOCTYPE html>
+<html lang="en" class="no-js" ng-app="edhubJobsApp">
+<head>
+    <meta charset="utf-8">
+    <title>Hack Team Find</title>
+
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="description" content="Street View App">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="author" content="Julius Hernandez Alvarado">
+
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="bower_components/angular-material-icons/angular-material-icons.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/edhub.css">
+    <!-- endbuild -->
+
+    <!-- ng-cloak -->
+    <style type="text/css">
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
             display: none !important;
-        } </style> </head> <body ng-controller="CoreCtrl"> <!--[if lt IE 7]>
+        }
+    </style>
+</head>
+
+<body ng-controller="CoreCtrl">
+
+<!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">
     upgrade your browser</ato improve your experience.</p>
-<![endif]--> <!--
+<![endif]-->
+
+<!--
     Horizontal Navigation
     ~ At the moment this won't show.
---> <md-nav-bar ng-show="coreEdhubHorizontalState" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links"> <md-nav-item md-nav-sref="landing" name="home"> EdHub.co </md-nav-item> <!--You can also add options for the <code>ui-sref-opts</code> attribute.--> <md-nav-item md-nav-sref="post" sref-opts="{reload:true, notify:true}"> Post a Job </md-nav-item> <md-nav-item ng-if="!ccCurrentUser" md-nav-sref="signup" name="signup"> Signup </md-nav-item> <!--You can also add options for the <code>ui-sref-opts</code> attribute.--> <md-nav-item ng-if="!ccCurrentUser" md-nav-sref="login" sref-opts="{reload:true, notify:true}"> Login </md-nav-item> <md-subheader ng-if="ccCurrentUser" layout="column"> <ng-md-icon icon="perm_identity"></ng-md-icon> {{ " Welcome " + ccCurrentUser }} </md-subheader> </md-nav-bar> <!-----------------------------------------> <!---- Initial coreSidenav Menu Button ----> <!-----------------------------------------> <!--
+-->
+<md-nav-bar ng-show="coreEdhubHorizontalState" md-selected-nav-item="currentNavItem"
+            nav-bar-aria-label="navigation links">
+    <md-nav-item md-nav-sref="landing" name="home">
+        EdHub.co
+    </md-nav-item>
+    <!--You can also add options for the <code>ui-sref-opts</code> attribute.-->
+    <md-nav-item md-nav-sref="post" sref-opts="{reload:true, notify:true}">
+        Post a Job
+    </md-nav-item>
+    <md-nav-item ng-if="!ccCurrentUser" md-nav-sref="signup" name="signup">
+        Signup
+    </md-nav-item>
+    <!--You can also add options for the <code>ui-sref-opts</code> attribute.-->
+    <md-nav-item ng-if="!ccCurrentUser" md-nav-sref="login" sref-opts="{reload:true, notify:true}">
+        Login
+    </md-nav-item>
+    <md-subheader ng-if="ccCurrentUser" layout="column">
+        <ng-md-icon icon="perm_identity"></ng-md-icon>
+        {{ " Welcome " + ccCurrentUser }}
+    </md-subheader>
+</md-nav-bar>
+
+
+<!----------------------------------------->
+<!---- Initial coreSidenav Menu Button ---->
+<!----------------------------------------->
+<!--
 <md-button id="edhub-core-nav-menu-btn" class="md-fab md-primary"
            aria-label="Recent Jobs" ng-click="coreEdhubToggleSideNav()">
     <ng-md-icon icon="menu"></ng-md-icon>
 </md-button>
---> <div ng-cloak layout="row"> <!----------------------> <!------ Side-nav ------> <!----------------------> <div ng-include="'layout/sidenav/in.sidenav.html'" layout="vertical"></div> <!---------------------> <!-- app entry point --> <!---------------------> <ng-view flex autoscroll="true"></ng-view> </div> <br> <!-- footer --> <div layout="row" layout-xs="column" layout-align="center center" style="background-color: whitesmoke;"> <div flex="90" flex-gt-sm="33" layout-margin layout-padding> <h1 style="text-align: center;">&copy; 2018 - Hack A Thon Team Finder App</h1> </div> </div> <!-- Google Analytics: change UA-XXXXX-X to be your site's ID --> <script> !function (A, n, g, u, l, a, r) {
+-->
+
+
+<div ng-cloak layout="row">
+    <!---------------------->
+    <!------ Side-nav ------>
+    <!---------------------->
+    <div ng-include="'layout/sidenav/in.sidenav.html'" layout="vertical"></div>
+
+    <!--------------------->
+    <!-- app entry point -->
+    <!--------------------->
+    <ng-view flex autoscroll="true"></ng-view>
+</div>
+
+<br>
+
+<!-- footer -->
+<div layout="row" layout-xs="column" layout-align="center center" style="background-color: whitesmoke;">
+    <div flex="90" flex-gt-sm="33" layout-margin layout-padding>
+        <h1 style="text-align: center;">&copy; 2018 - Hack A Thon Team Finder App</h1>
+    </div>
+</div>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+<script>
+    !function (A, n, g, u, l, a, r) {
         A.GoogleAnalyticsObject = l, A[l] = A[l] || function () {
             (A[l].q = A[l].q || []).push(arguments)
         }, A[l].l = +new Date, a = n.createElement(g),
@@ -19,4 +104,46 @@
     }(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
     ga('create', 'UA-XXXXX-X');
-    ga('send', 'pageview'); </script> <script src="scripts/vendor.13bb8f62.js"></script> <script src="scripts/scripts.js"></script> 
+    ga('send', 'pageview');
+</script>
+
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/firebase/firebase.js"></script>
+<script src="bower_components/angularfire/dist/angularfire.js"></script>
+<script src="bower_components/angular-md5/angular-md5.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+<script src="bower_components/angular-messages/angular-messages.js"></script>
+<script src="bower_components/angular-material/angular-material.js"></script>
+<script src="bower_components/angular-material-icons/angular-material-icons.min.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/ngSmoothScroll/lib/angular-smooth-scroll.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="app.js"></script>
+<!-- factories & services -->
+<script src="services/ser.auth.js"></script>
+<script src="services/ser.job.post.js"></script>
+<script src="services/ser.org.list.js"></script>
+<script src="services/ser.street-view.js"></script>
+<!-- controllers -->
+<script src="core.ctrl.js"></script>
+<script src="states/landing/ctrl.landing.js"></script>
+<script src="states/auth/ctrl.auth.js"></script>
+<script src="states/post/ctrl.post.js"></script>
+<script src="states/lab916/ctrl.lab916.js"></script>
+<script src="states/apply/ctrl.job.apply.js"></script>
+<script src="states/apply/ctrl.org.apply.js"></script>
+<script src="states/org-apps/ctrl.org-apps.js"></script>
+<script src="states/presentTables/ctrl.present-tables.js"></script>
+<!-- prac stuff -->
+<script src="ui-prac/ctrl.ui.prac.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>
