@@ -53,31 +53,10 @@ angular
                 // go to base url
                 .otherwise('/');
 
-            /*
-            const config = {
-                apiKey: "AIzaSyBTSbc83YSmYqJpqpV-iz0yS-5VcpjmK8E",
-                authDomain: "hack-find.firebaseapp.com",
-                databaseURL: "https://hack-find.firebaseio.com",
-                projectId: "hack-find",
-                storageBucket: "hack-find.appspot.com",
-                messagingSenderId: "575792060346"
-            };
-            */
-
-            /*
-            const config = {
-                apiKey: "AIzaSyDEyWzMw0NPhKUnjWTNsYeqAWazk5cR_LI",
-                authDomain: "edhub-jobs.firebaseapp.com",
-                databaseURL: "https://edhub-jobs.firebaseio.com",
-                projectId: "edhub-jobs",
-                storageBucket: "edhub-jobs.appspot.com",
-                messagingSenderId: "743478741402"
-            };
-            */
 
             // Initialize Firebase
             const config = {
-                apiKey: "AIzaSyBTSbc83YSmYqJpqpV-iz0yS-5VcpjmK8E",
+                apiKey: "REDACTED",
                 authDomain: "hack-find.firebaseapp.com",
                 databaseURL: "https://hack-find.firebaseio.com",
                 projectId: "hack-find",
