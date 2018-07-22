@@ -1,0 +1,98 @@
+<!-- ctrl=LandingCtrl as landingCtrl -->
+<section>
+    <!-- START:  Hero Landing -->
+    <div class="edhub-landing-hero edhub-overflow-hidden">
+        <div class="edhub-landing-hero-text">
+            <h1>Hack Team Finder</h1>
+            <div layout="row" layout-align="center center" layout-wrap>
+                <!-- landingCtrl.scroll2recentJobs() -->
+                <md-button class="md-button md-raised md-primary" aria-label="Recent Jobs"
+                           ng-click="landingCtrl.goToJoinView()">
+                    I'm looking for a Team
+                </md-button>
+            </div>
+        </div>
+    </div>
+    <!-- END OF: Hero Landing -->
+
+    <!-- "Tables To Query" Title -->
+    <md-toolbar id="edhub-recent-jobs-landing-title" class="md-padding edhub-text-center">
+        <h2>Hackers Looking for Teammates!</h2>
+    </md-toolbar>
+
+    <hr>
+
+    <!-- ng-controller = PresentTablesCtrl -->
+    <div ng-controller="PresentTablesCtrl as presentTablesCtrl">
+        <div flex> <!-- layout="row" layout-align="center center" -->
+
+            <md-grid-list md-cols-xs="2" md-cols-sm="3" md-cols-md="4" md-cols-gt-md="6"
+                          md-row-height-gt-md="1:1" md-row-height="2:2"
+                          md-gutter="12px" md-gutter-gt-sm="8px">
+
+                <!--------------------------->
+                <!-------- ng-repeat -------->
+                <!--------------------------->
+                <md-grid-tile ng-repeat="user in presentTablesCtrl.presentUsersData"
+                              md-rowspan="1"
+                              md-colspan="1">
+
+                    <md-card style="height: 100%; width: 100%;">
+                        <md-card-title>
+                            <md-card-title-text>
+
+                                <span class="md-headline">{{user.name}}</span>
+
+                                <span class="md-subhead">{{user.languages}}</span>
+
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-actions layout="row" layout-align="center center">
+                            <!-- presentTablesCtrl.startQuery(table['Table'], table['SV_ID'], table) -->
+                            <md-button class="md-raised md-warn"
+                                       data-ng-click="presentTablesCtrl.goToPersonView()">
+                                Join
+                            </md-button>
+                        </md-card-actions>
+                    </md-card>
+
+                </md-grid-tile>
+            </md-grid-list>
+        </div>
+
+        <md-content ng-show="presentTablesCtrl.showProgressCards" class="md-padding">
+            <div layout="row" layout-xs="column">
+
+                <!--------------------------->
+                <!-------- ng-repeat -------->
+                <!--------------------------->
+                <md-card flex-xs flex-gt-xs="33"
+                         ng-repeat="tableProgress in presentTablesCtrl.tableProgressData">
+                    <img ng-src="images/cute.png" class="md-card-image" alt="Washed Out">
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">{{tableProgress.tableName}}</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-content>
+                        <p>Ok Responses: {{tableProgress.okResponseCount}}</p>
+                        <p>Filler Images: {{tableProgress.fillerImageCount}}</p>
+                        <p>Street Views Images: {{tableProgress.streetViewImageCount}}</p>
+                    </md-card-content>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button class="md-icon-button" aria-label="Favorite"
+                                   data-ng-click="presentTablesCtrl.stopProgress()">
+                            <ng-md-icon icon="stop"></ng-md-icon>
+                        </md-button>
+                        <md-button class="md-icon-button" aria-label="Settings">
+                            <ng-md-icon icon="play_arrow"></ng-md-icon>
+                        </md-button>
+                        <!--<md-button class="md-icon-button" aria-label="Share">-->
+                        <!--<ng-md-icon icon="share"></ng-md-icon>-->
+                        <!--</md-button>-->
+                    </md-card-actions>
+                </md-card>
+            </div>
+        </md-content>
+    </div>
+</section>

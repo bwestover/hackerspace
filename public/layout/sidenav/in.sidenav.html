@@ -1,0 +1,25 @@
+<div layout="vertical">
+    <!-- md-is-locked-open="$mdMedia('gt-sm')" -->
+    <md-sidenav
+            class="md-sidenav-left md-whiteframe-2dp"
+            md-component-id="core-sidenav">
+        <md-toolbar layout="row">
+            <div class="md-toolbar-tools">
+                <h1 class="edhub-text-center w100pct">Team Hack</h1>
+            </div>
+        </md-toolbar>
+        <md-list flex>
+            <md-list-item data-ng-href="#!/" flex ng-click="coreEdhubToggleSideNav()">
+                Home
+            </md-list-item>
+
+            <md-list-item data-ng-href="#!/signup" flex ng-click="coreEdhubToggleSideNav()">
+                Signup/Login
+            </md-list-item>
+
+            <md-list-item ng-href="#!/post" flex ng-click="coreEdhubToggleSideNav()">
+                Find a Team
+            </md-list-item>
+        </md-list>
+    </md-sidenav>
+</div>

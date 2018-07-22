@@ -1,0 +1,10 @@
+<script src="ctrl.present-tables.js"></script>
+<section class="edhub-view-mtop">
+    <h1>Present Tables ngView</h1>
+    <h2>{{presentTables.message}}</h2>
+    <ul>
+        <li ng-repeat="record in presentTables.presentTableData">
+            <p>Table: {{record["Table"]}}</p>
+        </li>
+    </ul>
+</section>

@@ -1,0 +1,30 @@
+<section>
+    <h1>List your name and skills</h1>
+
+    <form name="applyToOrgForm" ng-submit="hackFindCtrl.joinPost()">
+        <div layout="column" flex-xs="100" flex-sm="90" flex-gt-sm="70" class="edhub-margin-auto layout-padding">
+            <!-- hacker name -->
+            <md-input-container class="md-icon-float md-block flex-gt-sm">
+                <label>Your Name</label>
+                <input type="text" name="applicantName"
+                       ng-model="hackFindCtrl.joinDataModel.name">
+            </md-input-container>
+
+            <!-- hacker skills -->
+            <md-input-container class="md-icon-float md-block flex-gt-sm">
+                <label>What are your skills</label>
+                <textarea name="skills" rows="5"
+                          ng-model="hackFindCtrl.joinDataModel.languages">
+                </textarea>
+            </md-input-container>
+
+            <!-- form buttons -->
+            <div layout="row">
+                <md-button type="submit" class="md-primary md-raised">Join</md-button>
+
+                <md-button data-ng-click="hackFindCtrl.goToHomeView()"
+                           class="md-raised">Home</md-button>
+            </div>
+        </div>
+    </form>
+</section>
